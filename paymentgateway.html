@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head><title></title>
+   <style>
+   
+   h1,h3,p{
+	text-alig=center;
+	color: #8a6d3b;
+	text-align: center;
+   }
+
+input [type=text] {
+  padding: 15px;
+    border-bottom: 2px solid #c69c53;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.2);
+
+  border-radius: 3px;
+  margin-bottom: 15px;
+  transition: background .3s;
+  color: #e6e6e6;
+}
+
+ input[type=text]:placeholder {
+  color: rgba(255, 255, 255, 0.3);
+ }
+
+ input[type=text]:hover {
+  background: rgba(0, 0, 0, 0.1);
+ }
+
+ input[type=text]:focus {
+  background: #ffffff;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  border-color: #4a304d;
+  color: #222222;
+ }
+
+ input[type=submit] {
+  background: #ca9f54;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 18px;
+    font-family: 'philosopher', sans-serif !important;
+  font-size: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 20px;
+  color: black;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+ }
+
+div {
+  background-color: #232323;
+  overflow: hidden;
+  padding: 50px;
+    border: 2px solid #c69c53;
+  color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  margin: 0;
+  text-align: center;
+  font-weight: normal;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #e6e6e6;
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #222222;
+   
+  background-color: #232323;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+
+   </style>
+</head>
+<body>
+<!-- Credit Card Payment Form - START -->
+ <h3>Payment Details</h3>
+   <h1 >Credit Card Payments</h1>
+    <p >Secured Payment gateway</p>	
+	
+    <div>
+	
+        <form action="pay.php" method="post">
+             
+			 <label for="crdno">CARD NUMBER</label>
+                   <input type="text" id="crdno" name="Card_No"  placeholder="0000 0000 0000 0000" requred/><br><br>
+				   
+              <label for="exp" >EXPIRATION DATE</label> 
+                   &nbsp; <input type="text" id="exp" name="EXP_Date"  placeholder="Date / Month" /><br><br>
+
+
+                     <label for="exp" >DATE YOU ARE GOING TO PAY</label> 
+                   &nbsp; <input type="text" id="exp" name="date"  placeholder="Date / Month" /><br><br>
+
+
+                    <label for="exp" >AMOUNT</label> 
+                   &nbsp; <input type="text" id="exp" name="ammount"   /><br><br>
+               
+			  
+               <label for="cv" >CV CODE</label>
+                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" id="cv" name="CV_Code" class="form-control" placeholder="123" /><br><br>
+				 
+                
+                <label for="owner">CARD OWNER</label>
+                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text"  id="owner" name="Card_Owner"  placeholder="Name of the account" /><br><br>
+				 
+                
+                   <input type="submit"  value="Process payment"/><br><br>
+                    </form>
+	</div>
+</body>	
+   
+
+</html>

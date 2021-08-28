@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>PAYMENTS | EVENT DICTIONARY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/loader.css" />
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body onload="myFunction()" style="margin:0;">
+
+<div id="loader"></div>
+<div class="container animate-bottom" style="display:none;" id="myDiv" >
+
+<div class="page-header">
+    <h1 align=center>Direct to the Bank</h1>
+    <p align=center>Secured Payment gateway</p>
+</div>
+
+<!-- Credit Card Payment Form - START -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <h3 class="text-center">Bank Details</h3>
+                        
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <h3>ACCOUNT NUMBER</h3>
+                                    <div class="input-group">
+                                        <p align=center>7520 2500 4587</p>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <h4><span class="hidden-xs">BANK</span></h4>
+                                    <p>SAMPATH BANK</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <H4>BRANCH</H4>
+                                    <p>KIRIBATHGODA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <H4>IMPORTANT</H4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            
+                            <a href="Services.html" style="text-decoration: none"><button class="btn btn-warning btn-lg btn-block">Back to Services</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .cc-img {
+        margin: 0 auto;
+    }
+</style>
+
+</div>
+
+
+    <script>
+        var myVar;
+
+        function myFunction() {
+          myVar = setTimeout(showPage, 3000);
+        }
+
+        function showPage() {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("myDiv").style.display = "block";
+        }
+     </script>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        <title> BOOKING FORM | EVENT DICTIONARY</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/fontAwesome.css">
+        <link rel="stylesheet" href="css/light-box.css">
+        <link rel="stylesheet" href="css/ed.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+        
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    
+    </head>
+    <body>
+        <div>
+            <h2 style="text-align: center;"><span class="colo">Event</span> Booking Form </h2>
+            
+        </div>
+        <div class="container">
+        <form action="insert.php" method="POST" enctype="multipart/form-data">
+            <label for="flname">Full Name</label>
+                <input type="text" id="name" name="name" >
+                  
+                <label for="Pnumber">Phone Number</label>
+                 <input type="text" id="contact" name="contact" >
+                  
+                <label for="email">E-mail Address</label>
+                <input type="email" id="email" name="email" >
+                  
+                <label for="NIC">NIC</label>
+                <input type="text"id="nic" name="nic">
+
+                
+                <label for="Hotels">Event Type</label>
+                <select id="type" name="type">
+                  <option >Select Event Type</option>
+                  <option value="Birth Day Party">Birth Day Party</option>
+                  <option value="Weddings">Weddings</option>
+                  <option value="Bachlor's Party">Bachlor's Party</option>
+                    <option value="Supprise Party">Supprise Party</option>
+                    <option value="Get To Gethers">Get To Gethers</option>
+                    <option value="Other">Other</option>
+                </select>
+                
+            
+                
+            
+               <label for="Location">Location</label>
+                <select id="location" name="location">
+                  <option >Select Location</option>
+                  <option value="Indoor">Indoor</option>
+                  <option value="Outdoor">Outdoor</option>
+                  
+                </select>
+                <label for="Date">Date</label><br></br>
+                <input type="Date" id="date" name="date" placeholder="DD/MM/YYYY"><br></br>
+             
+                <label for="Time">Time</label><br></br>
+                <input type="Time" id="time" name="time" placeholder="00.00"><br></br>
+            
+            
+                <label for="guests">Expected number of guests</label>
+                <input type="text" id="guests" name="guests" >
+
+
+                 <label for="Hotelk">Hotels</label>
+                <select id="Hotel" name="Hotel">
+                  <option >Select Hotel</option>
+                  <option value="ASHotel">ASA Hotel, Gampaha</option>
+                  <option value="Crowns Hotel, Gampaha">Crowns Hotel, Gampaha</option>
+                  <option value="King's Garden, Kadawatha">King's Garden, Kadawatha</option>
+                    <option value="Grand white Palace, Waliweriya">Grand white Palace, Waliweriya</option>
+                    <option value="Green Palace Hotel, Kiribathgoda">Green Palace Hotel, Kiribathgoda</option>
+                    <option value="Lover's Hub, Biyagama">Lover's Hub, Biyagama</option>
+                </select>
+
+                 <label for="Sallon">Sallons</label>
+                <select id="Sallon" name="Sallon">
+                  <option >Select Sallon</option>
+                  <option value="Sallon Manali,Nugegoda,Colombo,Kandy">Sallon Manali,Nugegoda,Colombo,Kandy</option>
+                  <option value="Elegent Sallon,RaThnapura,Colobo,Gampaha">Elegent Sallon,RaThnapura,Colobo,Gampaha</option>
+                  <option value="Salloan dream cature,Kottawa">Salloan dream cature,Kottawa</option>
+                    
+                </select>
+
+                <label for="Entertainment">Entertainments</label>
+                <select id="Entertainment" name="Entertainment">
+                  <option >Select Entertainment</option>
+                  <option value="DJ">DJ </option>
+                  <option value="Musical Bnad">Musical Bnad</option>
+                  <option value="Fun Games">Fun Games</option>
+                    
+                </select>
+                <label for="Decors">Decors</label>
+                <select id="Decors" name="Decors">
+                  <option >Select Decors</option>
+                  <option value="Lassana Flowra">Lassana Flowra</option>
+                  <option value=">Blossesms">Blossesms</option>
+                  <option value="Flowery world">Flowery world</option>
+                    
+                </select>
+                <label for="Catering">Catering</label>
+                <select id="Catering" name="Catering">
+                  <option >Select Catering </option>
+                  <option value="Hela Bojun">Hela Bojun</option>
+                  <option value="Delaghit Foods">Delaghit Foods</option>
+                  <option value="Ape Rasa Foods">Ape Rasa Foods</option>
+                    
+                </select>
+                <label for="Photograpy">Photograpy</label>
+                <select id="Photograpy" name="Photograpy">
+                  <option >Select Photograpy</option>
+                  <option value="Chanuka Nugera Photograpy">Chanuka Nugera Photograpy</option>
+                  <option value="Studio 3000">Studio 3000</option>
+                  <option value="Danushka Senadeera Photograpy">Danushka Senadeera Photograpy</option>
+                    
+                </select>
+                <label for="Coordinators">Coordinators</label>
+                <select id="Coordinators" name="Coordinators">
+                  <option >Select Coordinators</option>
+                  <option value="ASHotel">Team MR.Pradeep</option>
+                  <option value="Crowns Hotel, Gampaha">Team MR.Mahela</option>
+                  <option value="King's Garden, Kadawatha">Team Mrs.Shalika</option>
+                    
+                </select>
+
+
+
+
+
+                  
+             <input type="submit" name="submit" id="submit" value="submit">
+    
+            <p style="text-align: center">Our Team member will contact you soon. </p>
+            
+                <div class="simple-btn " style="text-align: center; margin-bottom: 10px;padding-top: 15px;">
+                        <a href="Testimonials.html">Request Quotation</a>
+            </div>
+            
+              </form>
+            </div>
+
+
+
+    </body>
+</html>
