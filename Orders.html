@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Order Details</title>
+	<style type="text/css">
+		body {
+           background-color: #232323;
+           font-family: 'philosopher', sans-serif !important;
+            }
+
+        h1,h2 {
+         color: #8a6d3b;
+         text-align: center;
+        }
+
+         p {
+            font-family: verdana;
+            font-size: 20px;
+            color: #8a6d3b;
+           }
+        table, th, td {
+            border: 1px solid ;
+            border-color:#8a6d3b; 
+            border-collapse: collapse;
+            color: #8a6d3b;
+        }
+        th, td {
+            padding: 15px;
+         }
+         th {
+            text-align: left;
+           }
+
+	</style>
+	
+</head>
+<body>
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Event Dictionary Orders Details</h1>
+            <h2> Orders</h2>
+                        
+            <div class="row">
+                <div class="col-xl-6">
+                	<table style="width: 100%">
+                		<tr>
+                            <th>name</th>
+                            <th>contact</th>
+                            <th>email</th>
+                            <th>nic</th>
+                            <th>type</th>
+                            <th>location</th>
+                            <th>date</th>
+                            <th>time</th>
+                            <th>guests</th>
+                            <th>Hotel</th>
+                            <th>Sallon</th>
+                            <th>Entertainment</th>
+                            <th>Decors</th>
+                            <th>Catering</th>
+                            <th>Coordinators</th>
+                            <th>price</th>
+                           
+                           
+                            
+                            
+                        </tr>
+                        <?php
+
+                            $db = mysqli_connect("localhost","root","","p1");
+
+                            if(!$db)
+                            {
+                                  die("Connection failed: " . mysqli_connect_error());
+                            }
+
+                            $records = mysqli_query($db,"select * from f1"); // fetch data from database
+
+                            while($data = mysqli_fetch_array($records))
+                            {
+                            ?>
+                               <tr>
+                                  <td><?php echo $data['name']; ?></td>
+                                   <td><?php echo $data['contact']; ?></td>
+                                   <td><?php echo $data['email']; ?></td>
+                                   <td><?php echo $data['nic']; ?></td>
+                                   <td><?php echo $data['type']; ?></td>
+                                   <td><?php echo $data['location']; ?></td>
+                                   <td><?php echo $data['date']; ?></td>
+                                   <td><?php echo $data['time']; ?></td>
+                                   <td><?php echo $data['guests']; ?></td>
+                                   <td><?php echo $data['Hotel']; ?></td>
+                                   <td><?php echo $data['Sallon']; ?></td>
+                                   <td><?php echo $data['Entertainment']; ?></td>
+                                   <td><?php echo $data['Decors']; ?></td>
+                                   <td><?php echo $data['Catering']; ?></td>
+                                   <td><?php echo $data['Coordinators']; ?></td>
+                                   <td><?php echo $data['price']; ?></td>
+                                   <td><a href="delor.php?nic=<?php echo $data['nic']; ?>">Delete</a></td>
+                                   
+                                   
+                                  
+                                   
+                               </tr> 
+                            <?php
+                            }
+                            ?>
+                            </table>
+
+                        <?php mysqli_close($db); // Close connection ?>
+
+                    <br></br>
+
+                    <form action="or.php" method="post">
+                        <table >
+
+                            <tr>
+                            <th>name</th>
+                            <th>contact</th>
+                            <th>email</th>
+                            <th>nic</th>
+                            <th>type</th>
+                            <th>location</th>
+                            <th>date</th>
+                            <th>time</th>
+                            <th>guests</th>
+                            <th>Hotel</th>
+                            <th>Sallon</th>
+                            <th>Entertainment</th>
+                            <th>Decors</th>
+                            <th>Catering</th>
+                            <th>Coordinators</th>
+                            <th>price</th>
+                           
+                       
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="name"  ></td>
+                                <td><input type="text" name="contact"  ></td>
+                                <td><input type="text" name="email"  ></td>
+                                <td><input type="text" name="nic" required ></td>
+                                <td><input type="text" name="type"  ></td>
+                                <td><input type="text" name="location"  ></td>
+                                <td><input type="text" name="date"  ></td>
+                                <td><input type="text" name="time"  ></td>
+                                <td><input type="text" name="guests"  ></td>
+                                <td><input type="text" name="Hotel"  ></td>
+                                <td><input type="text" name="Sallon"  ></td>
+                                <td><input type="text" name="Entertainment"  ></td>
+                                <td><input type="text" name="Decors"  ></td>
+                                <td><input type="text" name="Catering"  ></td>
+                                <td><input type="text" name="Coordinators"  ></td>
+                                <td><input type="text" name="delete"  ></td>
+                                <td><input type="text" name="price"  ></td>
+                                <td rowspan="2"> <input type="submit" value="Add" id="adding" name="add"> </td>
+                            </tr>
+                          </table>
+                            
+                         
+                         
+                       
+                    </form>
+                	
+                      
+                            
+                </div>
+                            
+             </div>
+                        
+</main>
+
+	
+</body>
+</html>

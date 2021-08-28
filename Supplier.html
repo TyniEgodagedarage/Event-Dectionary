@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Supplier Details</title>
+	<style type="text/css">
+    body {
+           background-color: #232323;
+           font-family: 'philosopher', sans-serif !important;
+            }
+
+        h1,h2 {
+         color: #8a6d3b;
+         text-align: center;
+        }
+
+         p {
+            font-family: verdana;
+            font-size: 20px;
+            color: #8a6d3b;
+           }
+        table, th, td {
+            border: 1px solid ;
+            border-color:#8a6d3b; 
+            border-collapse: collapse;
+            color: #8a6d3b;
+        }
+        th, td {
+            padding: 15px;
+         }
+         th {
+            text-align: left;
+           }
+
+  </style>
+	
+</head>
+<body>
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Event Dictionary Supplier Details</h1>
+            <h2>Pending Supplier Registrations</h2>
+                        
+            <div class="row">
+                <div class="col-xl-6">
+                	<table style="width: 100%">
+                		<tr>
+                            
+                            <th>Name</th>
+                            <th>TP</th>
+                            <th>Email</th>
+                            <th>NIC</th>
+                            <th>BR</th>
+                            
+                            <th> password1</th>
+                            <th> password2</th>
+                            <th> Item</th>
+                            <th>Delete</th>
+                            
+                            
+                            
+                        </tr>
+                        <?php
+
+                            $db = mysqli_connect("localhost","root","","p1");
+
+                            if(!$db)
+                            {
+                                  die("Connection failed: " . mysqli_connect_error());
+                            }
+
+                            $records = mysqli_query($db,"select * from supplier"); // fetch data from database
+
+                            while($data = mysqli_fetch_array($records))
+                            {
+                            ?>
+                               <tr>
+                                  
+                                   <td><?php echo $data['name']; ?></td>
+                                   <td><?php echo $data['contact']; ?></td>
+                                   <td><?php echo $data["email"]; ?></td>
+                                   <td><?php echo $data["nic"]; ?></td>
+                                   <td><?php echo $data["br"]; ?></td>
+                                   <td><?php echo md5($data["password1"]); ?></td>
+                                   <td><?php echo md5($data["password2"]); ?></td>
+                                    <td><?php echo $data["item"]; ?></td>
+                                    <td><a href="delsup.php?nic=<?php echo $data['nic']; ?>">Delete</a></td>
+                               </tr> 
+                            <?php
+                            }
+                            ?>
+                            </table>
+
+                        <?php mysqli_close($db); // Close connection ?>
+                	
+                    <br></br>
+                   
+                       
+                </div>
+                            
+             </div>
+             <br></br>
+               <h2>Existing  Suppliers Registrations</h2
+             
+                        
+            <div class="row">
+                <div class="col-xl-6">
+                  
+                    <table style="width: 100%">
+                        <tr>
+                          
+                            <th>Name</th>
+                            <th>TP</th>
+                            <th>Email</th>
+                            <th>NIC</th>
+                            <th>BR</th>
+                            
+                            <th> password1</th>
+                            <th> password2</th>
+                            <th> Item</th>
+                            <th>Delete</th>
+                            
+                            
+                        </tr>
+                        <?php
+
+                            $db = mysqli_connect("localhost","root","","p1");
+
+                            if(!$db)
+                            {
+                                  die("Connection failed: " . mysqli_connect_error());
+                            }
+
+                            $records = mysqli_query($db,"select * from oursup"); // fetch data from database
+
+                            while($data = mysqli_fetch_array($records))
+                            {
+                            ?>
+                               <tr>
+                                  
+                                   <td><?php echo $data['name']; ?></td>
+                                   <td><?php echo $data['contact']; ?></td>
+                                   <td><?php echo $data["email"]; ?></td>
+                                   <td><?php echo $data["nic"]; ?></td>
+                                   <td><?php echo $data["br"]; ?></td>
+                                   <td><?php echo $data["password1"]; ?></td>
+                                   <td><?php echo $data["password2"]; ?></td>
+                                    <td><?php echo $data["item"]; ?></td>
+                                    <td><a href="delsup2.php?nic=<?php echo $data['nic']; ?>">Delete</a></td>
+                               </tr> 
+                            <?php
+                            }
+                            ?>
+                            
+
+                        <?php mysqli_close($db); // Close connection ?>
+                    </table><br></br>
+                     <form action="supplier.php" method="post">
+                        <table >
+
+                            <tr>
+                               
+                            <th>Name</th>
+                            <th>TP</th>
+                            <th>Email</th>
+                            <th>NIC</th>
+                            <th>BR</th>
+                            
+                            <th> password1</th>
+                            <th> password2</th>
+                            <th> Item</th>
+                            <th>Delete</th>
+                            
+                       
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="name"  Required></td>
+                                <td><input type="text" name="contact"  Required></td>
+                                <td><input type="text" name="email"  Required></td>
+                                 <td><input type="text" name="nic"  Required></td>
+                                <td><input type="text" name="br"  Required></td>
+                                <td><input type="text" name="password1"  Required></td>
+                                <td><input type="text" name="password2"  Required></td>
+                                <td><input type="text" name="item"  Required></td>
+                                 <td><input type="text" name="Delete"  Required></td>
+                                <td rowspan="2"> <input type="submit" value="Add" id="adding" name="add"> </td>
+                            </tr>
+
+                        </table>
+
+                            
+                         
+                         
+                       
+                    </form>
+
+                        
+                                
+                            
+                </div>
+                            
+             </div>
+                        
+</main>
+
+	
+</body>
+</html>

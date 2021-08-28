@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Customer Details</title>
+	<style type="text/css">
+    body {
+           background-color: #232323;
+           font-family: 'philosopher', sans-serif !important;
+            }
+
+        h1,h2 {
+         color: #8a6d3b;
+         text-align: center;
+        }
+
+         p {
+            font-family: verdana;
+            font-size: 20px;
+            color: #8a6d3b;
+           }
+        table, th, td {
+            border: 1px solid ;
+            border-color:#8a6d3b; 
+            border-collapse: collapse;
+            color: #8a6d3b;
+        }
+        th, td {
+            padding: 15px;
+         }
+         th {
+            text-align: left;
+           }
+
+  </style>
+	
+</head>
+<body>
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Event Dictionary Customer Detais</h1>
+            <h2>Customers</h2>
+                        
+            <div class="row">
+                <div class="col-xl-6">
+                  
+                	<table style="width: 100%">
+                		<tr>
+                            <th>Customer_ID</th>
+                            <th>Customer_Name</th>
+                            <th>Telephone_No</th>
+                            <th>Email</th>
+                            <th>NIC</th>
+                            <th>Password</th>
+                             <th>Delete</th>
+                            
+                        </tr>
+                        <?php
+
+
+                            $db = mysqli_connect("localhost","root","","p1");
+
+                            if(!$db)
+                            {
+                                  die("Connection failed: " . mysqli_connect_error());
+                            }
+
+                            $records = mysqli_query($db,"select * from pesron"); // fetch data from database
+
+                            while($data = mysqli_fetch_array($records))
+                            {
+                            ?>
+                               <tr>
+                                  <td><?php echo $data['id']; ?></td>
+                                   
+                                   <td><?php echo $data['name']; ?></td>
+                                   </td><td><?php echo $data['contact']; ?></td>
+                                   <td><?php echo $data['email']; ?>
+                                    <td><?php echo $data['nic']; ?></td>
+                                    <td><?php echo md5($data['password']); ?></td>
+                                   
+                                     <td><a href="delcus.php?id=<?php echo $data['id']; ?>">Delete</a></td>
+                                   
+                                   
+                               </tr> 
+                            <?php
+                            }
+                            ?>
+                            </table>
+                      
+
+                        <?php mysqli_close($db); // Close connection ?>
+                        <br></br>
+                    <form action="customer.php" method="post">
+                        <table >
+
+                             <th>Customer_ID</th>
+                            <th>Customer_Name</th>
+                            <th>Telephone_No</th>
+                            <th>Email</th>
+                            <th>NIC</th>
+                            <th>Password</th>
+                             <th>Delete</th>
+                                
+                       
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="id" ></td>
+                                <td><input type="text" name="name"  Required></td>
+                                <td><input type="text" name="contact"  Required></td>
+                                <td><input type="text" name="email"  Required></td>
+                                <td><input type="text" name="nic"  Required></td>
+                                <td><input type="text" name="password"  Required></td>
+                                <td><input type="text" name="delete"  Required></td>
+                                 <td rowspan="2"> <input type="submit" value="Add" id="adding" name="add"> </td>
+                              
+                                
+                            
+                         
+                         
+                       
+                    </form>
+                    
+
+                            
+                </div>
+                            
+             </div>
+                        
+</main>
+
+	
+</body>
+</html>

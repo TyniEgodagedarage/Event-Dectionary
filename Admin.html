@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Details</title>
+	<style type="text/css">
+    body {
+           background-color: #232323;
+           font-family: 'philosopher', sans-serif !important;
+            }
+
+        h1,h2 {
+         color: #8a6d3b;
+         text-align: center;
+        }
+
+         p {
+            font-family: verdana;
+            font-size: 20px;
+            color: #8a6d3b;
+           }
+        table, th, td {
+            border: 1px solid ;
+            border-color:#8a6d3b; 
+            border-collapse: collapse;
+            color: #8a6d3b;
+        }
+        th, td {
+            padding: 15px;
+         }
+         th {
+            text-align: left;
+           }
+
+  </style>
+	
+</head>
+<body>
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Event Dictionary Admin Detais</h1>
+            <h2>Admin Panel</h2>
+                        
+            <div class="row">
+                <div class="col-xl-6">
+                	<table style="width: 100%">
+                		<tr>
+                            <th>adminid</th>
+                            <th>name</th>
+                            <th>contact</th>
+                            <th>email</th>
+                            <th>password</th>
+                            <th>delete</th>
+                            
+                        </tr>
+                        <?php
+
+                            $db = mysqli_connect("localhost","root","","p1");
+
+                            if(!$db)
+                            {
+                                  die("Connection failed: " . mysqli_connect_error());
+                            }
+
+                            $records = mysqli_query($db,"select * from admin"); // fetch data from database
+
+                            while($data = mysqli_fetch_array($records))
+                            {
+                            ?>
+                               <tr>
+                                  <td><?php echo $data['id']; ?></td>
+                                   <td><?php echo $data['name']; ?></td>
+                                   <td><?php echo $data['tp']; ?></td>
+                                   <td><?php echo $data['email']; ?></td>
+                                   <td><?php echo md5($data['password']); ?></td>
+                                   <td><a href="deladd.php?id=<?php echo $data['id']; ?>">delete</a></td>
+                               </tr> 
+                            <?php
+                            }
+                            ?>
+                            </table>
+
+                        <?php mysqli_close($db); // Close connection ?>
+
+                    <br></br>
+                    <form action="Admin.php" method="post">
+                        <table >
+
+                            <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>contact</th>
+                            <th>email</th>
+                            <th>password</th>
+                            <th>delete</th>
+                            
+                                
+                       
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="id"  Required></td>
+                                <td><input type="text" name="name"  Required></td>
+                                <td><input type="text" name="tp"  Required></td>
+                                <td><input type="text" name="email"  Required></td>
+                                <td><input type="text" name="password"  Required></td>
+                                <td><input type="text" name="delete"  Required></td>
+                                <td rowspan="2"> <input type="submit" value="Add" id="adding" name="add"> </td>
+                            </tr>
+                        </table>
+                            
+                         
+                         
+                       
+                    </form>
+                    
+                              
+                                
+                            
+                </div>
+                            
+             </div>
+                        
+</main>
+
+	
+</body>
+</html>

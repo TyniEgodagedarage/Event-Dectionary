@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FeedBack Details</title>
+	<style type="text/css">
+        body {
+           background-color: #232323;
+           font-family: 'philosopher', sans-serif !important;
+            }
+
+        h1,h2 {
+         color: #8a6d3b;
+         text-align: center;
+        }
+
+         p {
+            font-family: verdana;
+            font-size: 20px;
+            color: #8a6d3b;
+           }
+        table, th, td {
+            border: 1px solid ;
+            border-color:#8a6d3b; 
+            border-collapse: collapse;
+            color: #8a6d3b;
+        }
+        th, td {
+            padding: 15px;
+         }
+         th {
+            text-align: left;
+           }
+
+    </style>
+	
+</head>
+<body>
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Event Dictionary FeedBack Details</h1>
+            <h2>Feed backs</h2>
+                        
+            <div class="row">
+                <div class="col-xl-6">
+                	<table style="width: 100%">
+                		<tr>
+                            
+                            <th>Name</th>
+                            <th>email</th>
+                            <th>subject</th>
+                            <th>review</th>
+                            
+                            
+                        </tr>
+                        <?php
+
+                            $db = mysqli_connect("localhost","root","","p1");//change the "project" in to your database name
+
+                            if(!$db)
+                            {
+                                  die("Connection failed: " . mysqli_connect_error());
+                            }
+
+                            $records = mysqli_query($db,"select * from feedback"); // fetch data from database
+
+                            while($data = mysqli_fetch_array($records))
+                            {
+                            ?>
+                               <tr>
+                                  
+                                   <td><?php echo $data['name']; ?></td>
+                                   <td><?php echo $data['email']; ?></td>
+                                   <td><?php echo $data['subject']; ?></td>
+                                   <td><?php echo $data['review']; ?></td>
+                                   
+                               </tr> 
+                            <?php
+                            }
+                            ?>
+                            </table>
+
+                        <?php mysqli_close($db); // Close connection ?>
+                	  
+                            
+                </div>
+                            
+             </div>
+                        
+</main>
+
+	
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Items Details</title>
+	<style type="text/css">
+    body {
+           background-color: #232323;
+           font-family: 'philosopher', sans-serif !important;
+            }
+
+        h1,h2 {
+         color: #8a6d3b;
+         text-align: center;
+        }
+
+         p {
+            font-family: verdana;
+            font-size: 20px;
+            color: #8a6d3b;
+           }
+        table, th, td {
+            border: 1px solid ;
+            border-color:#8a6d3b; 
+            border-collapse: collapse;
+            color: #8a6d3b;
+        }
+        th, td {
+            padding: 15px;
+         }
+         th {
+            text-align: left;
+           }
+
+  </style>
+
+	
+</head>
+<body>
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Event Dictionary Items Details</h1>
+            <h2>Items</h2>
+                        
+            <div class="row">
+                <div class="col-xl-6">
+                	<table style="width: 100%">
+                		<tr>
+                            <th>itemid</th>
+                            <th>ItemName</th>
+                            <th>Price </th>
+                             <th>Delete </th>
+                           
+                            
+                            
+                            
+                        </tr>
+                        <?php
+
+                            $db = mysqli_connect("localhost","root","","p1");
+
+                            if(!$db)
+                            {
+                                  die("Connection failed: " . mysqli_connect_error());
+                            }
+
+                            $records = mysqli_query($db,"select * from item"); // fetch data from database
+
+                            while($data = mysqli_fetch_array($records))
+                            {
+                            ?>
+                               <tr>
+                                  <td><?php echo $data['itemid']; ?></td>
+                                   <td><?php echo $data['itemname']; ?></td>
+                                   <td><?php echo $data['itemprice']; ?></td>
+                                    <td><a href="delit.php?itemid=<?php echo $data['itemid']; ?>">Delete</a></td>
+                                   
+                                   
+                               </tr> 
+                            <?php
+                            }
+                            ?>
+                            </table>
+
+                        <?php mysqli_close($db); // Close connection ?>
+
+                        
+                	
+                    <br></br>
+                    <form action="it.php" method="post">
+                        <table >
+
+                            <tr>
+                                <td>ItemID :</td>
+                                <td>ItemName : </td>
+                                <td>Price :</td>
+                                <td>Delete :</td>
+                                
+                       
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="itemid"  Required></td>
+                                <td><input type="text" name="itemname"  Required></td>
+                                <td><input type="text" name="itemprice"  Required></td>
+                                <td><input type="text" name="Delete"  Required></td>
+                                <td rowspan="2"> <input type="submit" value="Add" id="adding" name="add"> </td>
+                            </tr>
+                          </table>
+                            
+                         
+                         
+                       
+                    </form>
+                    
+                            
+                </div>
+                            
+             </div>
+                        
+</main>
+
+	
+</body>
+</html>

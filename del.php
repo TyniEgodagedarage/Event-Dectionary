@@ -8,9 +8,9 @@
 
                                    
 
-                                   $nic = $_GET['nic']; // get id through query string
+                                   $id = $_GET['id']; // get id through query string
 
-                                  $del = mysqli_query($db,"delete from supplier where nic ='$nic'"); // delete query
+                                  $del = mysqli_query($db,"delete from ordernew1 where id = '$id'"); // delete query
 
                                   if($del)
                                   {

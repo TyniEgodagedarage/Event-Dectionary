@@ -13,7 +13,7 @@
 	    $stmt = $con->prepare("insert into cardinfo(Card_No, EXP_Date, CV_Code, Card_Owner,date,ammount)values(?,?,?,?,?,?)");
 	    $stmt->bind_param("iiisss",$Card_No, $EXP_Date, $CV_Code, $Card_Owner,$date,$ammount);
       $stmt->execute();
-      include("dd.html");
+      include("tt.html");
 
       $stmt->close();
      

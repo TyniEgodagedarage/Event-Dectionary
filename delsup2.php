@@ -1,4 +1,4 @@
- <?php
+<?php
                                     $db = mysqli_connect("localhost","root","","p1");
 
                                    if(!$db)
@@ -10,7 +10,7 @@
 
                                    $nic = $_GET['nic']; // get id through query string
 
-                                  $del = mysqli_query($db,"delete from supplier where nic ='$nic'"); // delete query
+                                  $del = mysqli_query($db,"delete from oursup where nic ='$nic'"); // delete query
 
                                   if($del)
                                   {
